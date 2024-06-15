@@ -63,23 +63,63 @@
  // to stop propagation Call: e.stopPropagation(), preventing the event from bubbling further.
 
 
- //
+ //State: it's a component’s memory
+ //const [index, setIndex] = useState(0); //In this case, you want React to remember index.
  
+ // index- > state variable  | setIndex-> state setter function , [] -> Array destructring 
+
+//Hooks—functions starting with use—can only be called at the top level of your components or your own Hooks. You can’t call Hooks inside conditions, loops, or other nested functions
 
 
-function Button({ onSmash, children }) {
-  return (
-    <button onClick={onSmash}>{children}</button>
-  )
-}
+//  Render & commit:
+//4 step process:-
+// initial render: createRoot - root.render()  | Trigger
+// component renders  | Render
+// modify/commit changes to the DOM | commit
+//After rendering is done and React updated the DOM, the browser will repaint/renders the screen
 
-export default function App() {
-  return (
-    <>
-      <Button onSmash={() => alert("playing games..")}>Play Game</Button>
-      <Button onSmash={() => alert("downloading games..")}>
-        download Game
-      </Button>
-    </>
-  );
-}
+// state as snapshot:
+// “Rendering” means that React is calling your component, which is a function. The JSX you return from that function is like a snapshot of the UI in time. Its props, event handlers, and local variables were all calculated using its state at the time of the render
+//Unlike regular JavaScript variables, React state behaves more like a snapshot. Setting it does not change the state variable you already have, but instead triggers a re-render
+
+
+//Queueing a Series of State Updates:-
+// This lets you update multiple state variables—even from multiple components—without triggering too many re-renders. But this also means that the UI won’t be updated until after your event handler, and any code in it, completes. This behavior, also known as batching, makes your React app run much faster. It also avoids dealing with confusing “half-finished” renders where only some of the variables have been updated.
+//setNumber(n => n + 1) //a function that calculates the next state based on the previous one in the queue
+//setEnabled(enabled => !enabled), or  use a prefix like setEnabled(prevEnabled => !prevEnabled).
+
+// Setting state does not change the variable in the existing render, but it requests a new render.
+// React processes state updates after event handlers have finished running. This is called batching.
+// To update some state multiple times in one event, you can use setNumber(n => n + 1) updater function.
+
+
+// updating objects in state:
+// Treat all state in React as immutable.
+// When you store objects in state, mutating them will not trigger renders and will change the state in previous render “snapshots”.
+// Instead of mutating an object, create a new version of it, and trigger a re-render by setting state to it.
+// You can use the {...obj, something: 'newValue'} object spread syntax to create copies of objects.
+// Spread syntax is shallow: it only copies one level deep.
+// To update a nested object, you need to create copies all the way up from the place you’re updating.
+// To reduce repetitive copying code, use Immer.
+
+
+//
+// refer-> table of common array operations
+// You can put arrays into state, but you can’t change them.
+// Instead of mutating an array, create a new version of it, and update the state to it.
+// You can use the [...arr, newItem] array spread syntax to create arrays with new items.
+// You can use filter() and map() to create new arrays with filtered or transformed items.
+// You can use Immer to keep your code concise.
+
+
+
+
+
+
+
+
+
+
+
+
+
