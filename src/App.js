@@ -114,13 +114,46 @@
 
 //.................
 
+// Managing State:
+
+//Reacting to input with state :
+
+// They don’t know where you want to go, they just follow your commands. (And if you get the directions wrong, you end up in the wrong place!) It’s called imperative because you have to “command” each element, from the spinner to the button, telling the computer how to update the UI.
+// imperative- step by step programming : eg JS
+
+// Thinking about UI declaratively :
+// When developing a component:-
+// Identify all its visual states.
+// Determine the human and computer triggers for state changes.
+// Model the state with useState.
+// Remove non-essential state to avoid bugs and paradoxes.
+// Connect the event handlers to set state.
 
 
+//Choosing the state structure:
+// The most important principle is that state shouldn’t contain redundant or duplicated information. If there’s unnecessary state, it’s easy to forget to update it, and introduce bugs!
+// remove uncessary state variable if only you want to render something 
+//simplify the code by calculating fullName while the component is rendering
 
 
+//Sharing state between components :
+//lifting the state up
+// Sometimes, you want the state of two components to always change together. To do it, remove state from both of them, move it to their closest common parent, and then pass it down to them via props. This is known as “lifting state up”
 
 
+// Preserving and Resetting State
+// when React removes a component, it destroys its state.
+//When you tick “Render the second counter”, a second Counter and its state are initialized from scratch (score = 0) and added to the DOM.
+//React preserves a component’s state for as long as it’s being rendered at its position in the UI tree. If it gets removed, or a different component gets rendered at the same position, React discards its state.
+// variations:=
+//State is tied to a position in the render tree
+//Same component at the same position preserves state 
+//Different components at the same position reset state 
+//Resetting state at the same position
 
+
+//Reducers let you consolidate a component’s state update logic. Context lets you pass information deep down to other components. You can combine reducers and context together to manage state of a complex screen.
+// With this approach, a parent component with complex state manages it with a reducer. Other components anywhere deep in the tree can read its state via context. They can also dispatch actions to update that state.
 
 
 
