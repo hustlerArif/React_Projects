@@ -8,7 +8,7 @@
 
 ///Don’t try to “change props” instead use state for user input/interaction....
 
-// To pass props, add them to the JSX, just like you would with HTML attributes.
+// To pass props, add them to the JSX, just like you would with HTML attributes..
 // To read props, use the function Avatar({ person, size }) destructuring syntax.
 // You can specify a default value like size = 100, which is used for missing and undefined props.
 // You can forward all props with <Avatar {...props} /> JSX spread syntax, but don’t overuse it!
@@ -122,7 +122,7 @@
 // imperative- step by step programming : eg JS
 
 // Thinking about UI declaratively :
-// When developing a component:-
+// When developing a component follow below points in mind:-
 // Identify all its visual states.
 // Determine the human and computer triggers for state changes.
 // Model the state with useState.
