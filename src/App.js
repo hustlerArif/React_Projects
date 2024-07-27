@@ -47,7 +47,7 @@
 // Adding Interactvity ////////////
 //In React, data that changes over time is called state.You can add state to any component, and update it as needed.
 
-//Responding to Events:
+//Responding to Events:-
 // Different ways to write an event handler
 // How to pass event handling logic from a parent component
 // How events propagate and how to stop them
