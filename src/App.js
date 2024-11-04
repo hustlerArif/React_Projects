@@ -1,7 +1,7 @@
 //jumpstart your project with the thousands of components shared by the React open source community like:-
 // Chakra UI and Material UI.
 
-// component/props/states
+// component/props/states in React
 //Pro-tip: Use a JSX Converter : We recommend using a converter to translate your existing HTML and SVG to JSX
 
 //When you nest content inside a JSX tag, the parent component will receive that content in a prop called children
